@@ -1,7 +1,7 @@
 #include "szczescia.h"
     
     
-maszyna3::maszyna3(int s,int g){
+maszyna_szczescia::maszyna_szczescia(int s,int g){
     srand( time( NULL ) );
     this->sloty =s;
     this->gry=g;
@@ -9,12 +9,12 @@ maszyna3::maszyna3(int s,int g){
     wygrana=0;
 
 }
-    maszyna3::~maszyna3(){
+    maszyna_szczescia::~maszyna_szczescia(){
         delete T;
       
     }
     
-    void maszyna3::los(){
+    void maszyna_szczescia::los(){
         T[0]=10;
         int znowu=0;
         int maks_znowu=-1;

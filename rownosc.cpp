@@ -1,18 +1,18 @@
 #include "rownosc.h"
     
 
-maszyna1::maszyna1(int s,int g){
+maszyna_rownosc::maszyna_rownosc(int s,int g){
     srand( time( NULL ) ); //by rozne losy
     this->sloty =s;
     this->gry=g;
     this->T=new int[sloty];
     wygrana=0;              //wartosc poczatkowa
 }
-    maszyna1::~maszyna1(){
+    maszyna_rownosc::~maszyna_rownosc(){
         delete T;
     }
     
-    void maszyna1::los(){
+    void maszyna_rownosc::los(){
         T[0]=10;            //by w porownywaniu miec wyraz 0
         int znowu=0;
         int maks_znowu=-1;

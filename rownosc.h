@@ -1,12 +1,12 @@
-#ifndef maszyna1_H
-#define maszyna1_H
+#ifndef rownosc_H
+#define rownosc_H
 #include "maszyn.h"
 
 
-class maszyna1: public maszyn{
+class maszyna_rownosc: public maszyn{
     public:
-    maszyna1(int s,int g);  //ustalenie wielkosci
-    ~maszyna1();
+    maszyna_rownosc(int s,int g);  //ustalenie wielkosci
+    ~maszyna_rownosc();
     void los(); //najwazniejsz funkcja
 
 

@@ -7,7 +7,7 @@
 
 
 int main(){
-    int w=99;                  //zmiennie potrzebne na teraz do komunkacji czlowiek terminal
+    int wybor_maszyn=99;                  //zmiennie potrzebne na teraz do komunkacji czlowiek terminal
     int iks;
     string imie;
     int kloty;
@@ -27,11 +27,11 @@ int main(){
         cout<<"kim jestes?"<<endl;
         cin>>imie;
         konta gracz(imie);                                  //pyta na jakim koncie grasz by zapisac progerss
-        while(w!=9){
+        while(wybor_maszyn!=9){
         cout<<"masz taki budzet "<<gracz.get_hajs()<<endl;
         cout<<"(0)  wyjscie, (9)zmien gracza,  maszyny: (1) rownosci , (2) czystosci , (3) radosci"<<endl;
-        cin>>w;
-        switch(w){
+        cin>>wybor_maszyn;
+        switch(wybor_maszyn){
             case 0 :
             {gracz.zapis();                                      //wyjscie i zapis
                 return(0);}
@@ -39,6 +39,7 @@ int main(){
             {gracz.zapis();                                      //zmiana konta i zapis
                 break;}
             case 1:
+            wybor_maszyn=99;
             {cout<<"ma 3 sloty o ile zwiekszasz?"<<endl;                       // mozesz zmienic format maszyny
             cin>>kloty;
             cout<<"za jedna gre "<<5*(1+kloty)<<" to ile razy grasz? ";
@@ -48,7 +49,7 @@ int main(){
                 break;
             }
             gracz.dodaj(5*(1+kloty)*gierki*(-1));
-            maszyna1 rownosc(kloty+3,gierki);
+            maszyna_rownosc rownosc(kloty+3,gierki);
             while(rownosc.get_gry()!=0 && iks!=2){
                 
                 cout<<"pozostaly ci "<<rownosc.get_gry()<<endl;
@@ -69,6 +70,7 @@ int main(){
             }iks=99;                                           ///opcje 1 2 3 sa analogiczne do siebie 
             gracz.dodaj(rownosc.get_wygrana());}
             case 2:
+            wybor_maszyn=99;
             {cout<<"ma 3 sloty o ile zwiekszasz?"<<endl;
             cin>>kloty;
             cout<<"za jedna gre "<<50*(1+kloty)<<" to ile razy grasz? ";
@@ -78,7 +80,7 @@ int main(){
                 break;
             }
             gracz.dodaj(5*(1+kloty)*gierki*(-1));
-            maszyna2 czystosc(kloty+3,gierki);
+            maszyna_czystosc czystosc(kloty+3,gierki);
             while(czystosc.get_gry()!=0 && iks!=2){
                 
                 cout<<"pozostaly ci "<<czystosc.get_gry()<<endl;
@@ -99,6 +101,7 @@ int main(){
             }iks=99;
             gracz.dodaj(czystosc.get_wygrana());}
             case 3:
+            wybor_maszyn=99;
             {cout<<"ma 3 sloty o ile zwiekszasz?"<<endl;
             cin>>kloty;
             cout<<"za jedna gre "<<5*(1+kloty)<<" to ile razy grasz? ";
@@ -108,7 +111,7 @@ int main(){
                 break;
             }
             gracz.dodaj(5*(1+kloty)*gierki*(-1));
-            maszyna3 radosc(kloty+3,gierki);
+            maszyna_szczescia radosc(kloty+3,gierki);
             while(radosc.get_gry()!=0 && iks!=2){
                 
                 cout<<"pozostaly ci "<<radosc.get_gry()<<endl;

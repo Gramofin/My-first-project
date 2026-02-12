@@ -1,7 +1,7 @@
 #include "czystosc.h"
     
     
-maszyna2::maszyna2(int s,int g){
+maszyna_czystosc::maszyna_czystosc(int s,int g){
     srand( time( NULL ) );
     this->sloty =s;
     this->gry=g;
@@ -9,12 +9,12 @@ maszyna2::maszyna2(int s,int g){
     wygrana=0;
 
 }
-    maszyna2::~maszyna2(){
+    maszyna_czystosc::~maszyna_czystosc(){
         delete T;
       
     }
     
-    void maszyna2::loso(){
+    void maszyna_czystosc::loso(){
         T[0]=10;
         int znowu=0;
         int maks_znowu=-1;

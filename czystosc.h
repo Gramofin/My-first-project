@@ -1,12 +1,12 @@
-#ifndef maszyniwac_H
-#define maszyniwac_H
+#ifndef czystosc_H
+#define czlowiek_H
 #include "maszyn.h"
 
 
-class maszyna2: public maszyn{
+class maszyna_czystosc: public maszyn{
     public:
-    maszyna2(int s,int g);
-    ~maszyna2();
+    maszyna_czystosc(int s,int g);
+    ~maszyna_czystosc();
     void loso();
 
 

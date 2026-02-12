@@ -1,12 +1,12 @@
-#ifndef maszyna3_H
-#define maszyna3_H
+#ifndef szczescia_H
+#define szczescia_H
 #include "maszyn.h"
 
 
-class maszyna3: public maszyn{
+class maszyna_szczescia: public maszyn{
     public:
-    maszyna3(int s,int g);
-    ~maszyna3();
+    maszyna_szczescia(int s,int g);
+    ~maszyna_szczescia();
     void los();
 
 
