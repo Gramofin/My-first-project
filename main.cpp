@@ -1,7 +1,7 @@
 #include "maszyn.h"
-#include "maszyna1.h"
-#include "maszyna2.h"
-#include "maszyna3.h"
+#include "rownosc.h"
+#include "szczescia.h"
+#include "czystosc.h"
 #include "konta.h"
 
 

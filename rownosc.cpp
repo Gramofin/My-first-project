@@ -1,4 +1,4 @@
-#include "maszyna1.h"
+#include "rownosc.h"
     
 
 maszyna1::maszyna1(int s,int g){

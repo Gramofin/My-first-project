@@ -1,7 +1,7 @@
-#include "maszyna2.h"
+#include "szczescia.h"
     
     
-maszyna2::maszyna2(int s,int g){
+maszyna3::maszyna3(int s,int g){
     srand( time( NULL ) );
     this->sloty =s;
     this->gry=g;
@@ -9,17 +9,17 @@ maszyna2::maszyna2(int s,int g){
     wygrana=0;
 
 }
-    maszyna2::~maszyna2(){
+    maszyna3::~maszyna3(){
         delete T;
       
     }
     
-    void maszyna2::loso(){
+    void maszyna3::los(){
         T[0]=10;
         int znowu=0;
         int maks_znowu=-1;
         for(int i=0;i<sloty;i++){
-            T[i+1]=rand()%3;
+            T[i+1]=rand()%8;
             if(T[i+1]==T[i]){
                 znowu++;
             }
@@ -31,14 +31,32 @@ maszyna2::maszyna2(int s,int g){
             }
                 switch(T[i+1]){
                     case 0:
-                    this->wygrana=wygrana/2;
-                    break;
-                    case 1:
-                    gry=gry+1*iloraz;
+                    this->wygrana=wygrana/4;
                     break;
                     case 2:
+                    gry=gry+1*iloraz;
+                    break;
+                    case 1:
+                    this->wygrana=wygrana/4;
+                    break;
+                    case 3:
+                    gry=gry+1*iloraz;
+                    break;
+                    case 4:
+                    wygrana=wygrana+5*iloraz;
+                    break;
+                    case 5:
+                    wygrana=wygrana+5*iloraz;
+                    break;
+                    case 6:
                     wygrana=wygrana+500*iloraz;
                     break;
+                    case 7:
+                    wygrana=wygrana+50000*iloraz;
+                    break;
+                   
+
+
 
                 }
                 znowu=0;
