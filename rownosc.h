@@ -7,7 +7,7 @@ class maszyna_rownosc: public maszyn{
     public:
     maszyna_rownosc(int s,int g);  //ustalenie wielkosci
     ~maszyna_rownosc();
-    void los(); //najwazniejsz funkcja
+    void los(); //najwazniejsz funkcja ktora overriduje funkcj virtualna
 
 
 };

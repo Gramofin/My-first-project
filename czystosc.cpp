@@ -1,7 +1,7 @@
 #include "czystosc.h"
     
     
-maszyna_czystosc::maszyna_czystosc(int s,int g){
+maszyna_czystosc::maszyna_czystosc(int s,int g){   //tworzy maszyne losujaca z odpowiednimi parametrami
     srand( time( NULL ) );
     this->sloty =s;
     this->gry=g;
@@ -14,8 +14,8 @@ maszyna_czystosc::maszyna_czystosc(int s,int g){
       
     }
     
-    void maszyna_czystosc::loso(){
-        T[0]=10;
+    void maszyna_czystosc::los(){                         //los polega na losowaniu kolejnych cyfr i odrazu porownywaniu z poprzednimi
+        T[0]=10;                             //gdy co najmniej 3 takie same zapamietuje a nastepnie dalej losuje i sprawdza
         int znowu=0;
         int maks_znowu=-1;
         for(int i=0;i<sloty;i++){
@@ -29,7 +29,7 @@ maszyna_czystosc::maszyna_czystosc(int s,int g){
                 for(int n=0;n<znowu-3;n++){
                     iloraz=iloraz+n;
             }
-                switch(T[i+1]){
+                switch(T[i+1]){        //tu gdy juz bylo 3 albo wiecej ale ciag tych samych znakow sie konczy sprawdza nagrode
                     case 0:
                     this->wygrana=wygrana/2;
                     break;

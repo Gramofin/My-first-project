@@ -7,7 +7,7 @@ class maszyna_czystosc: public maszyn{
     public:
     maszyna_czystosc(int s,int g);
     ~maszyna_czystosc();
-    void loso();
+    void los();    //tu overriduje virtualna funkcje
 
 
 };

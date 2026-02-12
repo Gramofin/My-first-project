@@ -19,5 +19,7 @@ class maszyn {
     void wyswietlacz();
     int get_gry();
     int get_wygrana();
+    virtual void los()=0;  //virtualne funkcja stworzona tylko by byla podmieniona przez odpowiednia
+    virtual ~maszyn();
 };
 #endif

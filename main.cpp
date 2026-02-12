@@ -4,24 +4,54 @@
 #include "czystosc.h"
 #include "konta.h"
 
+void konfiguracja(int& ilosc_slotow,int& gierki, konta& gracz,int& wybor_maszyn){
+    wybor_maszyn=99;
+            {cout<<"ma 3 sloty o ile zwiekszasz?"<<endl;                       // mozesz zwiekszyc ilosc losowanychcyfr
+            cin>>ilosc_slotow;
+            cout<<"za jedna gre "<<5*(1+ilosc_slotow)<<" to ile razy grasz? ";
+            cin>>gierki;                                                  //ile razy losujesz za co sie placi
+            if(5*(1+ilosc_slotow)*gierki<=gracz.get_hajs()){
+                gracz.dodaj(5*(1+ilosc_slotow)*gierki*(-1));
+            }
+            else{
+                cout<<"Nie stac cie!"<<endl;
+                gierki=0;
+            }
+            
+            
+    
+}}
+void akcja(maszyn& k,int& czy_gra,konta& gracz){                         //ta funkcja wykonuje losy
+            while(k.get_gry()!=0 && czy_gra!=2){
+                
+                cout<<"pozostaly ci "<<k.get_gry()<<endl;
+                cout<<"(1) graj  (2) odejdz  "<<endl;                       
+                cin>>czy_gra;
+                switch(czy_gra){
+                    case 1:
+                    {k.los();
+                    k.wyswietlacz();
+                    cout<<"tu wygrales: "<<k.get_wygrana()<<endl;
+                    break;}
+                    case 2:
+                    {break;}
+
+
+                }
+
+            }czy_gra=99;                                           
+            gracz.dodaj(k.get_wygrana());}
 
 
 int main(){
-    int wybor_maszyn=99;                  //zmiennie potrzebne na teraz do komunkacji czlowiek terminal
-    int iks;
+    int wybor_maszyn=99;                  //zmiennie potrzebne na teraz do komunkacji czlowiek-terminal
+    int czy_gra;
     string imie;
-    int kloty;
+    int ilosc_slotow;
     int gierki;
-    cout<<"Witaj sprawa wyglada tak ze z pracy cie wyrzucili."<<endl<<
-    "za twoi syn(ktorego masz) potrzebuje 1000000 na operacje Kolana."<<endl<<
-    "Jest operacja bez ktorej twoi syn nie przezyje."<<endl<<
-    "Zalazles rozwiazanie jednak, wszystko sprzedales postawiles na hazard."<<endl<<
-    "przed toba beda 3 nieznane maszyny i twoim  cele jest znalezienie najbardziej oplacalnej"<<endl<<
-    "badz poprostu posiadac wieksze szczescie"<<endl<<
-    "operujesz z tym swiatem wybierajac mozliwe opcje poprzez wpisywanie numerow"<<endl<<
-    "opcje do wyboru beda otoczone nawiasami"<<endl<<
-    "A wiec ..."<<endl;
-
+    cout<<"Witaj, by grac wybieraj opcje wpisujac cyfry podane w nawiadach"<<endl;
+    cout<<"Cos sie dzieje gdy wylosujesz 3 albo wiecej tych samych cyfr obok siebie"<<endl;
+    cout<<"powodzenia"<<endl;
 
     while(1){                                            //wielka pentla
         cout<<"kim jestes?"<<endl;
@@ -38,105 +68,27 @@ int main(){
             case 9 :
             {gracz.zapis();                                      //zmiana konta i zapis
                 break;}
-            case 1:
-            wybor_maszyn=99;
-            {cout<<"ma 3 sloty o ile zwiekszasz?"<<endl;                       // mozesz zmienic format maszyny
-            cin>>kloty;
-            cout<<"za jedna gre "<<5*(1+kloty)<<" to ile razy grasz? ";
-            cin>>gierki;                                                  //ile razy krencisz za co sie placi
-            if(5*(1+kloty)*gierki>gracz.get_hajs()){
-                cout<<"nie stac cie!!"<<endl;
-                break;
-            }
-            gracz.dodaj(5*(1+kloty)*gierki*(-1));
-            maszyna_rownosc rownosc(kloty+3,gierki);
-            while(rownosc.get_gry()!=0 && iks!=2){
-                
-                cout<<"pozostaly ci "<<rownosc.get_gry()<<endl;
-                cout<<"(1) graj  (2) odejdz  "<<endl;                       //tu juz losujesz albo wychdzisz tracac nie uzytr
-                cin>>iks;
-                switch(iks){
-                    case 1:
-                    {rownosc.los();
-                    rownosc.wyswietlacz();
-                    cout<<"tu wygrales: "<<rownosc.get_wygrana()<<endl;
-                    break;}
-                    case 2:
-                    {break;}
-
-
-                }
-
-            }iks=99;                                           ///opcje 1 2 3 sa analogiczne do siebie 
-            gracz.dodaj(rownosc.get_wygrana());}
-            case 2:
-            wybor_maszyn=99;
-            {cout<<"ma 3 sloty o ile zwiekszasz?"<<endl;
-            cin>>kloty;
-            cout<<"za jedna gre "<<50*(1+kloty)<<" to ile razy grasz? ";
-            cin>>gierki;
-            if(5*(1+kloty)*gierki>gracz.get_hajs()){
-                cout<<"nie stac cie!!"<<endl;
-                break;
-            }
-            gracz.dodaj(5*(1+kloty)*gierki*(-1));
-            maszyna_czystosc czystosc(kloty+3,gierki);
-            while(czystosc.get_gry()!=0 && iks!=2){
-                
-                cout<<"pozostaly ci "<<czystosc.get_gry()<<endl;
-                cout<<"(1) graj  (2) odejdz  "<<endl;
-                cin>>iks;
-                switch(iks){
-                    case 1:
-                    {czystosc.loso();
-                    czystosc.wyswietlacz();
-                    cout<<"tu wygrales: "<<czystosc.get_wygrana()<<endl;
-                    break;}
-                    case 2:
-                    {break;}
-
-
-                }
-
-            }iks=99;
-            gracz.dodaj(czystosc.get_wygrana());}
-            case 3:
-            wybor_maszyn=99;
-            {cout<<"ma 3 sloty o ile zwiekszasz?"<<endl;
-            cin>>kloty;
-            cout<<"za jedna gre "<<5*(1+kloty)<<" to ile razy grasz? ";
-            cin>>gierki;
-            if(5*(1+kloty)*gierki>gracz.get_hajs()){
-                cout<<"nie stac cie!!"<<endl;
-                break;
-            }
-            gracz.dodaj(5*(1+kloty)*gierki*(-1));
-            maszyna_szczescia radosc(kloty+3,gierki);
-            while(radosc.get_gry()!=0 && iks!=2){
-                
-                cout<<"pozostaly ci "<<radosc.get_gry()<<endl;
-                cout<<"(1) graj  (2) odejdz  "<<endl;
-                cin>>iks;
-                switch(iks){
-                    case 1:
-                    {radosc.los();
-                    radosc.wyswietlacz();
-                    cout<<"tu wygrales: "<<radosc.get_wygrana()<<endl;
-                    break;}
-                    case 2:
-                    {break;}
-
-
-                }
-
-            }iks=99;
-            gracz.dodaj(radosc.get_wygrana());}
+            case 1:{
+            konfiguracja(ilosc_slotow,gierki,gracz,wybor_maszyn);      //poszegolne maszyny losujace
+            maszyna_rownosc rownosc(ilosc_slotow+3,gierki);
+            akcja(rownosc,czy_gra,gracz);
+            break;}
+            case 2:{
+            konfiguracja(ilosc_slotow,gierki,gracz,wybor_maszyn);
+            maszyna_czystosc czystosc(ilosc_slotow+3,gierki);
+            akcja(czystosc,czy_gra,gracz);
+            break;}
+            case 3:{
+            konfiguracja(ilosc_slotow,gierki,gracz,wybor_maszyn);
+            maszyna_szczescia radosc(ilosc_slotow+3,gierki);
+            akcja(radosc,czy_gra,gracz);
+            break;}
 
 
         }
 
     }
-    w=99;
+    wybor_maszyn=99;
 
     }
          

@@ -1,15 +1,16 @@
 CXX = g++
-CXXFLAGS = -Wall
-LFLAGS = 
+CXXFLAGS=-Wall -O
+# LFLAGS = 
 
-OBJS = main.o konta.o maszyna3.o maszyna2.o maszyna1.o maszyn.OBJS
+OBJS = main.o rownosc.o czystosc.o szczescia.o konta.o maszyn.o
 
-all: prog
+all: $(OBJS) 
+	$(CXX) $^ -o $@
 
-prog: $(OBJS)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+$(OBJS): %.o: %.cpp
+	$(CXX) -c $(CXXFLAGS) $< -o $@
 
 clean:
 	rm -f *.o prog
 
-.PHONY: all clean
+.PHONY: clean

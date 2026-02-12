@@ -9,7 +9,7 @@ maszyna_rownosc::maszyna_rownosc(int s,int g){
     wygrana=0;              //wartosc poczatkowa
 }
     maszyna_rownosc::~maszyna_rownosc(){
-        delete T;
+        delete[] T;
     }
     
     void maszyna_rownosc::los(){
@@ -17,7 +17,7 @@ maszyna_rownosc::maszyna_rownosc(int s,int g){
         int znowu=0;
         int maks_znowu=-1;
         for(int i=0;i<sloty;i++){
-            T[i+1]=rand()%10;        //by rowno losowalo miedcy 0-9
+            T[i+1]=rand()%10;        //by rowno losowalo miedzy 0-9
             if(T[i+1]==T[i]){      
                 znowu++;              //tu liczy ile razy sie powtarza cyfra
             }

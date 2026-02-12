@@ -7,7 +7,7 @@ class maszyna_szczescia: public maszyn{
     public:
     maszyna_szczescia(int s,int g);
     ~maszyna_szczescia();
-    void los();
+    void los();      //override funkcji virtualnej
 
 
 };

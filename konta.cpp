@@ -16,7 +16,7 @@ konta::konta(string naz){
         file.close();
         file.open("zapis.txt",ios::app);
         file<<nazwa<<endl;
-        hajs=500;
+        hajs=5000;
         file<<hajs<<endl;
         file.close();
     }
@@ -27,11 +27,11 @@ konta::konta(string naz){
 void konta::dodaj(int plus){                       //przekazanie nagrody na konto
     this->hajs=hajs+plus;
 }
-int konta::get_hajs(){                             //do wypisywania
+int konta::get_hajs(){                             //do wypisywania stanu konta
     return hajs;
 }
 void konta::zapis(){
-    ifstream file("zapis.txt");       //najwieszezlo jakie powstalo szuka gdzie jestes
+    ifstream file("zapis.txt");       // szuka gdzie w pliku jest twoje konto jestes i zapamietuje ktora to linijka
 
 
     string line;
@@ -50,7 +50,7 @@ void konta::zapis(){
     file.close();
 
 ifstream input("zapis.txt");
-ofstream output("zapis2.txt");                 //by nastepnie zamieniz na nowy wygrany budzet
+ofstream output("zapis2.txt");                 //podmienia ta linijke w odzielnym chwilowym pliku na stan akutalny
 
    
     
@@ -67,7 +67,7 @@ ofstream output("zapis2.txt");                 //by nastepnie zamieniz na nowy w
     }
 
     input.close();
-    output.close();                      //i to skopiowac
+    output.close();                      //kopiuje akualny stan do chcianego pliku
     ifstream input2("zapis2.txt");
     ofstream output2("zapis.txt");                 
     lineNumber = 1;
